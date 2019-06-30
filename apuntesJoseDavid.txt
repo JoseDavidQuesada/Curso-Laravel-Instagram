@@ -1,0 +1,30 @@
+
+***** Uso del ORM
+
+use App\Image;
+
+Route::get('/', function () {
+    $images = Image::all();
+    foreach($images as $img){
+       // var_dump($img);
+       echo $img->image_path."<br>";
+       echo $img->description."<br>";
+       echo $img->user->name." ".$img->user->surname."<br>";
+
+        if(count($img->comments) >= 1){
+                echo "<strong>Comentarios</strong><br>";
+                foreach ($img->comments as $commment) { //$img->comments el orm interpreta las funciones como un objeto.
+                    echo $commment->user->name." ".$commment->user->surname." : ".$commment->content."<br>"; //comment trae los comments de la imagen con su respectivo usuario
+                }
+        }
+
+        echo "Likes: ".count($img->likes)."<br>";
+        echo "<hr>";
+        
+    }
+
+    
+    die;
+
+    return view('welcome');
+});
