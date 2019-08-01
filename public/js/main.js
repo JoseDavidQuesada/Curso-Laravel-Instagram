@@ -11,7 +11,7 @@ window.addEventListener('load',function(){
             $(this).addClass('btn-dislike').removeClass('btn-like'); //cambia  clase
             $(this).attr('src',url+'/img/heart-red.png'); //cambia atributo
             
-
+/*
             $.ajax({
                 url: url+'/like/'+$(this).attr('data-info'),
                 type: 'GET',
@@ -23,18 +23,19 @@ window.addEventListener('load',function(){
 
             dislike();
             
-            alert($(this).attr('data-info'));
+            alert($(this).attr('data-info'));*/
         })
     }
 
     like();
 
     function dislike(){
+       
         $('.btn-dislike').unbind('click').click(function(){
             $(this).addClass('btn-like').removeClass('btn-dislike'); //cambia  clase
             $(this).attr('src',url+'/img/heart-black.png'); //cambia atributo
 
-            $.ajax({
+        /*    $.ajax({
                 url: url+'/dislike/'+$(this).attr('data-info'),
                 type: 'GET',
                 success: function(response){
@@ -44,7 +45,7 @@ window.addEventListener('load',function(){
             });
 
             like();
-            alert($(this).attr('data-info'));
+            alert($(this).attr('data-info'));*/
         })
     }
 

@@ -8,7 +8,7 @@ class Image extends Model
 {
     protected $table = 'images'; //Tabla de la base de datos
 
-    //Relacion one to many.
+    //Relacion one to many. 
     public function comments(){
         return $this->hasMany('App\Comment')->orderBy('id','desc'); //Orber by para traer los comments del mas nuevo al mas viejo
     }
